@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { Button } from "@/app/components/ui/button"
 
 const memes = [
-  { src: "/drew-it-in-my-maths-class-v0-ito7iuotfdjc1.jpeg", alt: "Keyun Nahi Ho Rahi Pdhai - Alakh Pandey" },
-  { src: "/xcxydq8th1sb1.jpeg", alt: "Pdh ke BOSDIKE(Daru piyega)" },
-  { src: "/GG2mw4oW0AAaRbp.jpeg", alt: "Maa Chudegi very soon!!!" },
-  { src: "/hq720.jpeg", alt: "back lag gayi to mare jasi halat ho jayegi" },
-  
+  { src: "/drew-it-in-my-maths-class-v0-ito7iuotfdjc1.jpeg", alt: "Keyun Nahi Ho Rahi Pdhai - Alakh Pandey", type: "image" },
+  { src: "/xcxydq8th1sb1.jpeg", alt: "Pdh ke BOSDIKE(Daru piyega)", type: "image" },
+  { src: "/GG2mw4oW0AAaRbp.jpeg", alt: "Maa Chudegi very soon!!!", type: "image" },
+  { src: "/hq720.jpeg", alt: "back lag gayi to mare jasi halat ho jayegi", type: "image" },
+  { src: "/khel_khtm.mp4", alt: "mera khel khtm hai", type: "video" }
 ]
 
 export default function StudyMaterials() {
@@ -28,20 +28,34 @@ export default function StudyMaterials() {
     return null
   }
 
+  const currentItem = memes[currentMeme]
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-200 flex flex-col items-center justify-center p-4">
       <h1 className="text-3xl font-bold text-blue-800 mb-6">Your Exclusive Study Material</h1>
       <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
-        <div className="relative w-[300px] h-[400px]">
-          <Image
-            src={memes[currentMeme].src}
-            alt={memes[currentMeme].alt}
-            fill
-            className="object-cover rounded-md"
-            priority={currentMeme === 0}
-          />
-        </div>
-        <p className="text-gray-600 my-4 text-center">{memes[currentMeme].alt}</p>
+        {currentItem.type === "video" ? (
+          <div className="w-[300px] h-[400px]">
+            <video
+              src={currentItem.src}
+              className="w-full h-full object-cover rounded-md"
+              autoPlay
+              
+              loop
+            />
+          </div>
+        ) : (
+          <div className="relative w-[300px] h-[400px]">
+            <Image
+              src={currentItem.src}
+              alt={currentItem.alt}
+              fill
+              className="object-cover rounded-md"
+              priority={currentMeme === 0}
+            />
+          </div>
+        )}
+        <p className="text-gray-600 my-4 text-center">{currentItem.alt}</p>
         <Button onClick={nextMeme} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
           Next Study Hack
         </Button>
@@ -55,4 +69,3 @@ export default function StudyMaterials() {
     </div>
   )
 }
-
