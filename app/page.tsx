@@ -20,7 +20,7 @@ export default function Home() {
         </Link>
       </div>
       <p className="mt-8 text-sm text-gray-500">
-        Disclaimer: This is a joke website. No actual exam materials are provided.
+        Disclaimer: see on the next page....
       </p>
     </div>
   )
