@@ -6,7 +6,7 @@ import { Button } from "@/app/components/ui/button"
 
 const memes = [
   { src: "/drew-it-in-my-maths-class-v0-ito7iuotfdjc1.jpeg", alt: "Keyun Nahi Ho Rahi Pdhai - Alakh Pandey", type: "image" },
-  { src: "/xcxydq8th1sb1.jpeg", alt: "Pdh ke BOSDIKE(Daru piyega)", type: "image" },
+  { src: "/xcxydq8th1sb1.jpeg", alt: "Pdh le BOSDIKE", type: "image" },
   { src: "/GG2mw4oW0AAaRbp.jpeg", alt: "Maa Chudegi very soon!!!", type: "image" },
   { src: "/hq720.jpeg", alt: "back lag gayi to mare jasi halat ho jayegi", type: "image" },
   { src: "/khel_khtm.mp4", alt: "mera khel khtm hai", type: "video" }
